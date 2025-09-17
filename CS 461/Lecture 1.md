@@ -75,3 +75,11 @@ Many Machine Learning schemes **already existed** before Artificial Intelligence
 ## Birth of AI in 1956
 The study is to proceed on the basis of **conjecture** that **every aspect of learning** or any other feature of intelligence can in principle be **precisely described** such that **a machine can be made to simulate it**.
 ## Two Poles in AI: Heuristic vs. Symbolic Approach
+### Connectionism (Heuristic Approach)
+- Learns from data
+- Focuses on end effect (Cares more about correct output, method may be unknown)
+- **Inductive** (Uses trial and error)
+### Symbolic AI (Rule Based)
+- Uses logical rules as opposed to datasets
+- Does not use data to derive an optimal function
+- **Deductive** (Uses programmed logic)
