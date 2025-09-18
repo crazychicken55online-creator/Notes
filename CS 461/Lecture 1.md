@@ -1,6 +1,6 @@
 # Why Machine Learning?
 - Artificial Intelligence (AI) is opening fair access to advanced knowledge.
-- AI is transforming the way we live and work (EG: Driver Assistance Systems in cars, Robots in warehouses)
+- AI is transforming the way we live and work (e.g., Driver Assistance Systems in cars, Robots in warehouses)
 - Machine Learning is the central system behind AI
 # What is Machine Learning?
 ## What is Learning?
@@ -55,7 +55,7 @@ A magnetized mouse named “Theseus” would **systematically** explore a maze u
 Theseus had:
 - A **finger** to move East/West/North/South
 - **Memory** for each square to remember the last direction in which Theseus left that sqaure.
-- As Theseus comes to the square again the memory for the square is **updated counterclockwise** (eg: east would be updated to north) in order to ensure that Theseus takes every possible route.
+- As Theseus comes to the square again the memory for the square is **updated counterclockwise** (e.g., east would be updated to north) in order to ensure that Theseus takes every possible route.
 - Two modes of Machine Operations: **Exploration** and **Goal Strategy**.
 ### Why is Theseus a Learning Machine
 Theseus is a learning machine because:
