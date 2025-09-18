@@ -36,7 +36,7 @@ Bayesian: Probability = Degree of **belief**/**uncertainty**. (Subjective)
 ## Difference in Approach
 Imagine we want to know if a coin is fair.
 ### Frequentist Approach
-Goal: Analyze the data in front of you. Determine if what you see is likely or unlikely **assuming a specific truth** (e.g.,: The coin is fair).
+Goal: Analyze the data in front of you. Determine if what you see is likely or unlikely **assuming a specific truth** (e.g., The coin is fair).
 Probability is: The relative frequency of an event happening if you could repeat an experiment an infinite number of times.
 - e.g., "The probability of heads is 50%" means if I flip the coin forever, half the flips will be heads.
 Parameters (e.g., the coin's fairness): Are **fixed**, unknown numbers. They are **not** random. There is **one** true value.
@@ -81,10 +81,69 @@ Key idea: It's about the probability of the **model** (or hypothesis), given the
 - Use **Frequentist** methods when you want a strict, objective analysis of an experiment's result.
 - Use **Bayesian** methods when you want to incorporate existing knowledge and explicitly update your beliefs with new data.
 # Probability 101
-## Probability Space/Axioms
+## Probability Space
+- Experiment: Any process of obtaining or generating an observation. (e.g., Inspecting if an item is defective or non-defective.)
+- Sample Space ($\Omega$, omega): A set of all possible outcomes. (e.g., $\Omega$={$\text{{non-defective, defective}}$})
+- Events Set ($A\subset\Omega$ or $A\in2^{||\Omega||}$) (A subset of omega or A belongs in 2 to the power of the size of $\Omega$) (Power set of omega): A set of all possible subsets of $\Omega$. (e.g., $2^{||\Omega||}=${$\emptyset$,{$\text{non-defective}$},{$\text{defective}$},$\Omega$)
+- Probability Measure $\text{P[E]}$: A function that assigns each event a probability between 0 and 1. i.e., A function $\text{P}$:$2^{||\Omega||}\rightarrow\text{[0,1]}$
+## Probability Axioms
+Probability Measure follows the below 3 axioms.
+- Non-negativity: Probability can never be negative. i.e., $P[A]\geq0$
+- Total Probability: The probability of *something* happening is 1. i.e., $P(\Omega)=1$ where $\Omega$ is the set of all possible outcomes).
+- Additivity: If two events **cannot** happen at the same time (e.g., getting both heads and tails on one coin flip), the probability of *either* happening is the sum of their probabilities. i.e., If $A∩B=\emptyset$, then $P(A∪B)=P(A)+P(B)$.
+	- Equation from lecture: $A_i \cap A_j = \varnothing \;\; \text{if } i \neq j \Rightarrow P\!\left[\bigcup_k A_k \right] = \sum_k P[A_k]$
+## Probability Corollaries
+$P[A^{c}]=1-P[A]$ by countable additivity and total probability, $P[A^{c}\cup A]=P[A]+P[A^{c}]=1$
+$P[\emptyset]=1-P[\Omega]=0$
+# Random Variables/Random Vectors
+A random variable exists to handle **numerical** outcomes/events.
+A random variable X is a function that **assigns a real number** to each of outcome $\omega$ in the same space $\Omega$ of a random experiment.
+- e.g., Let X be 1 if a coin flip is heads, and 0 if tails. X is a random variable in this case.
+## Bernoulli Random Variable
+A Bernoulli random variable is the simplest kind of random variable. It can only take on two values, 1 and 0. It takes on a 1 if an experiment with probability $p$ resulted in success and 0 otherwise.
+## Binomial Random Variable
+A Binomial random variable is a random variable that represents the number of successes in $n$ successive independent rials of a Bernoulli experiment.
+## Cumulative Distribution Function (CDF)
+The CDF is a function which takes in a number and returns the probability that a random variable takes on a value less than that number.
+For a continuous random variable X the Cumulative Distribution Function, written $F(a)$ is:
+$F_X(a)=P(X\leq a) = \int_{-\infty}^{a}f(x)dx$
+Problems that can be solved using CDF:
 
-# Random Variables/Random Vectors  
-# Computing Probability: Joint & Conditional Prob/Marginalization  
+| Probability Query | Solution    | Explanation           |
+| ----------------- | ----------- | --------------------- |
+| $P(X<a)$          | $F(a)$      | The definition of CDF |
+| $P(X\leq a)$      | $F(a)$      | $P(X=a)=0$            |
+| $P(X>a)$          | $1-F(a)$    | $P(X<a)+P(X>a)=1$     |
+| $P(a<X<b)$        | $F(b)-F(a)$ | $F(a)+P(a<X<b)=F(b)$  |
+From lecture:
+- The cumulative distribution function (CDF) of a R.V (random variable) X is defined as the probability of the event {$X\leq x$}
+- $F_X(x)=P[X\leq x]$ for $-\infty\leq x \leq +\infty$
+## Probability Density Function (PDF)
+The Probability Density Function defines the likelihood that a random variable takes on a particular value.
+The PDF of R.V X is defined as the derivative of $f_X(x)$:
+- $f_X(X) = \frac{dF_x(x)}{dx}$, $f_XY(x,y)=\frac{\partial ^{2}}{\partial xy}F_XY(x,y)$
+## Probability Mass Function (PMF)
+For discrete R.Vs, the PMF is simply the probability that X equals a specific value. i.e., $P(X=x)$
+## Random Vectors
+A list of multiple random variables. $X=(X_1,X_2,…,X_n)$.
+This is how multi-dimensional data points are represented. 
+- e.g., a patient’s age, height, and weight.
+# Computing Probability: Joint & Conditional Probabilities/Marginalization  
+## Equally Likely Outcomes
+As equally likely outcomes, $P[A]$ becomes a counting problem.
+- $P[A]=\frac{||A||}{||\Omega||}$
+e.g., When tossing a **fair** coin N times, compute P (k times H)
+$\text{P[k times H]} = \binom Nk\frac{1}{2^{N}}$
+- $||\Omega||$ = choose H or T, N times: $2^{N}$
+- $||A||$ = choose k among different N without order (??)
+## Biased Outcomes
+The core idea is that to find the probability of any event, you just need to add up the probabilities of all the individual outcomes that make that event happen.
+Therefore:
+- $P[A]=\sum_{\omega_k\in A}P[${$\omega_k$}$]$
+- The equation says to list all the specific, single ways the event (A) can happen.
+- Find the probability of *each* of those single outcomes.
+- Add them all together.
+## Conditional Probability
 # Bayes Rules  
 # Important Statistics: mean & variance (random scalar & vectors)  
 # Gaussian Density (defined by mean and variance)  
