@@ -144,7 +144,71 @@ Therefore:
 - Find the probability of *each* of those single outcomes.
 - Add them all together.
 ## Conditional Probability
+Core idea: Conditional Probability is the chance of one event (A) happening given that another event (B) has already occurred.
+- Written as: $P(A|B)$, the probability of A given B.
+Example:
+Event B+: A person has breast cancer. We know that this is rare, given: P(B+) = 0.008 (0.8%)
+Event M+: A mammogram test is positive. (Suggests cancer)
+Test accuracy:
+- P(M+|B+) = 0.9, If a person *has* cancer, the test will correctly be positive 90% of the time. This is called **sensitivity**.
+- P(M+|B-) = 0.07, If a person *does not* have cancer, the test will incorrectly be positive 7% of the time. This is the false positive rate.
+Key Question: If a patient gets a positive test result (M+), what is the probability that they *actually* have cancer? Given by P(B+|M+), the probability of having cancer *given* a positive test.
+- This is unintuitive as we may think that the probability of someone having cancer given a positive test is 90% (P(M+|B+)), however the actual probability is much lower (P(B+|M+)) as the disease is so rare that the false positive rate (P(M+|B-)) is higher than the true positive rate (P(B+|M+)).
+## Joint Probability
+Core idea: Joint Probability, $P(\text{A and B})$ or $P(A\cap B)$, is the probability of two events **both** happening.
+## Chain Rule
+Connects Joint Probability and Conditional Probability. 
+Core idea: The probability of A **and** B happening is the probability of A happening multiplied by the probability of B happening **given that A has already happened**.
+The Formulas:
+- $P(A\cap B)=P(A)*P(B|A)$
+- Also works the other way: $P(A\cap B)=P(B)*P(A|B)$
+- For three events: $P(A ∩ B ∩ C) = P(A) * P(B | A) * P(C | A ∩ B)$
+Example:
+What is the probability of drawing 2 aces from a deck of cards?
+- Event A: First card is an Ace. P(A) = 4/52
+- Event B: Second card is an Ace. Given that the first card is also an Ace. P(B) = 3/51
+- Joint Probability: $P(A\cap B) = P(A)*P(B|A)=(4/52)*(3/51)=0.00452488687=0.452$%
+## Independent Events
+Core idea: Two events are **independent** if the occurrence of one event **does not affect** the probability of the other event happening.
+If A and B are independent then: $P(A ∩ B) = P(A) * P(B)$
+Why this makes sense: 
+- Look at the chain rule: $P(A ∩ B) = P(A) * P(B | A)$. 
+- If A and B are independent, then knowing A happened tells us nothing about B. So, $P(B | A)$ is just the normal $P(B)$. 
+- Plugging that in gives us $P(A ∩ B) = P(A) * P(B)$.
+Example:
+Flipping a fair coin twice.
+- Event A: First flip is Heads. $P(A) = 1/2$
+- Event B: Second flip is Tails. $P(B) = 1/2$
+- The first flip doesn't influence the second. They are independent.
+- $P(\text{A and B}) = P(\text{First Heads and Second Tails}) = (1/2) * (1/2) = 1/4$.
+## Law of Total Probability (Partitioning)
+Core concept: This is a method to find the probability of a complex event by **breaking the sample space into simpler, non-overlapping parts**.
+The Idea: Imagine you want to know the probability it will rain tomorrow (`P(Rain)`). You could break this down:
+- What if a cold front moves in? (`P(Rain | Cold Front)`)  
+- What if it doesn't? (`P(Rain | No Cold Front)`)
+- Now, weight these conditional probabilities by how likely each scenario (cold front or no cold front) is.
+The Process (Partitioning):
+1. Identify a set of events (`Ω₁, Ω₂, Ω₃, ...`) that are:
+	- **Mutually Exclusive:** No two can happen at the same time.
+	- **Exhaustive:** Together, they cover every single possible outcome in the sample space.
+2. The probability of any other event (**A**) is the **weighted sum** of its probabilities under each scenario.
+The Formula:
+- $P(A) = P(A | Ω₁)P(Ω₁) + P(A | Ω₂)P(Ω₂) + P(A | Ω₃)P(Ω₃) + ...$
 # Bayes Rules  
+Core Concept:
+- Bayes' Theorem is a formal, mathematical rule for **updating your beliefs** (probabilities) in the face of **new evidence**.
+	- It allows you to "reverse" conditional probabilities. If you know $P(B | A)$, you can find $P(A | B)$
+The Formula:
+- $P(Ω₁ | A) = [ P(A | Ω₁) * P(Ω₁) ] / [ P(A | Ω₁)P(Ω₁) + P(A | Ω₂)P(Ω₂) + ... ]$
+- This is the general form shown on the slide, where $Ω₁, Ω₂,...$ are different scenarios (a partition 
+The Components (Using the Plant Example):
+- **Posterior Probability ($P(Ω₁ | A)$):** This is what we want to find. It's our **updated belief** about a scenario ($Ω₁$) _after_ we see the evidence ($A$). 
+- _Example: The probability your friend forgot to water ($F$)_ after _you see the dead plant ($D$). $P(F | D)$._ 
+- **Likelihood ($P(A | Ω₁)$):** The probability of observing the evidence **if** the scenario were true.
+	- _Example: The probability the plant dies **if** your friend forgot. `P(D | F)`._    
+- **Prior Probability (`P(Ω₁)`):** Our **initial belief** about the scenario _before_ seeing any new evidence.
+	- _Example: The probability your friend would forget to water in the first place. `P(F)`._     
+	- **Total Probability of Evidence (`P(A)`):** The denominator is the total probability of seeing the evidence, calculated using the **Law of Total Probability** (from Slide 31). It acts as a normalizing constant.
 # Important Statistics: mean & variance (random scalar & vectors)  
 # Gaussian Density (defined by mean and variance)  
 # Maximum Likelihood Estimation (MLE)  
