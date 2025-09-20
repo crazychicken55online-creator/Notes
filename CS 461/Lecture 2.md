@@ -303,6 +303,84 @@ The Process:
 	- Here, $\Phi(z)$ is the **cumulative distribution function (CDF)** of the standard normal distribution. It gives the probability that a standard normal variable is less than or equal to $z$.
 ## The Gaussian (Normal) Distribution
 ### Univariate Gaussian (1D)
+- **What it is:** A continuous probability distribution that is completely defined by two parameters: its **mean (`μ`)** and its **variance (`σ²`)**. It is denoted by `X ~ N(μ, σ²)`.
+- **Probability Density Function (PDF):**  
+    `f(x) = (1 / √(2πσ²)) * exp( -((x - μ)² / (2σ²) )`
+- **Parameter Roles:**
+    - **Mean (`μ`):** Determines the **center** (location) of the bell curve.
+    - **Variance (`σ²`):** Determines the **width** (spread or dispersion) of the bell curve. A larger variance means the data is more spread out around the mean.
 ### Multivariate Gaussian (Multidimensional)
+- **What it is:** The generalization of the Gaussian distribution to multiple dimensions. It is used to model random _vectors_, where the components are correlated.
+- **Parameters:** It is completely defined by a **mean vector (`μ`)** and a **covariance matrix (`Σ`)**. Denoted by `X ~ N(μ, Σ)`.
+- **Probability Density Function (PDF):**  
+    `f(x) = (1 / √( (2π)^D |Σ| )) * exp( -½ (x - μ)ᵀ Σ⁻¹ (x - μ) )`
+    - `D`: The number of dimensions (length of the vector `x`).
+    - `|Σ|`: The determinant of the covariance matrix. It reflects the overall variance (or "volume") of the distribution.
+    - `(x - μ)ᵀ Σ⁻¹ (x - μ)`: This is called the **Mahalanobis distance**. It's a measure of the distance from the point `x` to the mean `μ`, which accounts for the correlations in the data. It replaces the simple squared difference `(x - μ)²` from the 1D case.
 # Maximum Likelihood Estimation (MLE)  
+### Learning from Data
+- **The Problem:** We assume our data was generated from a probability distribution (e.g., a Gaussian `N(μ, σ²)`), but we don't know its true parameters (`μ` and `σ²`).
+- **The Goal:** Find the single best set of parameters that are **most supported by the observed data**.
+- **The Intuition (The "Coin Flip" Thought Experiment):**
+    - You flip a coin 10 times and get 7 heads and 3 tails.
+    - What is the probability `p` that the coin lands on heads?
+    - A **Frequentist** would say: "Which value of `p` makes the outcome (7H, 3T) most probable?" This is MLE.
+    - A **Bayesian** would say: "Given the outcome (7H, 3T), and maybe a prior belief about fair coins, what is my updated belief about `p`?" This is MAP (Maximum a Posteriori) estimation.
+### #### The Likelihood Function
+- **Definition:** The **likelihood** of a parameter `θ` (e.g., `μ`) given observed data `D = {x₁, x₂, ..., xₙ}` is proportional to the probability of seeing the data _if_ the parameter were true: `L(θ | D) = P(D | θ)`.  
+- **Key Point:** We treat the data as fixed and the parameters as unknown variables. We "plug in" the data and see how the probability changes as we vary `θ`.
+- **For I.I.D. Data:** If data points are independent and identically distributed, the joint likelihood is the product of individual probabilities:  
+    `L(θ | D) = P(x₁ | θ) * P(x₂ | θ) * ... * P(xₙ | θ)`
+### The MLE Process
+1. **Write the Likelihood Function:** Express the probability of the data given the parameters.
+2. **Take the Log (Get the Log-Likelihood):** Since products are hard to work with, we take the natural log. This turns the product into a sum and is a monotonic function, so the `θ` that maximizes the log-likelihood also maximizes the likelihood.  
+    `ℓ(θ | D) = log L(θ | D) = Σ log P(x_i | θ)`
+3. **Differentiate and Solve:** Take the derivative of the log-likelihood with respect to the parameter `θ`, set it to zero, and solve for `θ`.  
+    `∂ℓ(θ | D)/∂θ = 0`
+### MLE for Gaussian Mean
+- **Problem:** Find the MLE for the mean `μ` of a Gaussian, assuming the variance `σ²` is known.
+- **Step 1: Likelihood.**  
+    `L(μ | D) = Π (1/√(2πσ²)) * exp( -(x_i - μ)²/(2σ²) )`
+- **Step 2: Log-Likelihood.**  
+    `ℓ(μ | D) = Σ [ -½log(2πσ²) - (x_i - μ)²/(2σ²) ]`  
+    We can ignore the terms that don't contain `μ`, as they are constants. This simplifies to:  
+    `ℓ(μ | D) = - (1/(2σ²)) * Σ (x_i - μ)² + constant`
+- **Step 3: Maximize.** To maximize the log-likelihood, we _minimize_ the **Negative Log-Likelihood (NLL)**. This is equivalent to minimizing the **Sum of Squared Errors (SSE)**, `Σ (x_i - μ)²`.  
+    `∂/∂μ [ Σ (x_i - μ)² ] = -2 Σ (x_i - μ) = 0`
+- **The Solution:**  
+    `Σ (x_i - μ) = 0` --> `n*μ = Σ x_i` --> `μ_mle = (1/n) * Σ x_i`
+- **Conclusion:** The **Maximum Likelihood Estimate** for the population mean is the **sample mean**. This is a profoundly important result.
 # Sample mean and Sample Variance
+### Sample Mean ($M_n$)
+- **What it is:** The arithmetic average of the observed data: `M_n = (1/n) * Σ X_i`.
+- **It is an Estimator:** The sample mean is not a fixed number; it is a **statistic** calculated from data. Because the data is random, the sample mean is itself a **Random Variable**.
+- **Properties:**
+    - **Unbiasedness:** `E[M_n] = μ`. This means if you could repeat the sampling process infinitely, the average of all your sample means would equal the true population mean. It's correct "on average."
+    - **Consistency:** As the sample size `n` increases, the sample mean gets closer and closer to the true mean. Its variance decreases: `Var(M_n) = σ² / n`.
+### Sample Variance ($S^{2}$ or $V_n$)
+- **What it is:** A measure of the spread of the observed data around the sample mean.
+- **The "Naïve" (Biased) Estimator:**  
+    `V_n_biased = (1/n) * Σ (X_i - M_n)²`  
+    This formula, which seems like the natural analog of the population variance, is **biased**. Its expected value is _less_ than the true population variance: `E[V_n_biased] = ((n-1)/n) * σ²`.
+- **Why it's Biased:** We use the sample mean `M_n` instead of the true mean `μ`. The data points are, on average, closer to `M_n` than they are to `μ`, making the average squared distance too small.
+- **The Unbiased Estimator:**  
+    `V_n_unbiased = (1/(n-1)) * Σ (X_i - M_n)² = S²`  
+    Using `n-1` (known as **Bessel's correction**) compensates for this and makes the estimator unbiased: `E[S²] = σ²`.
+- **Degrees of Freedom:** The correction `n-1` represents the **degrees of freedom**. By calculating the sample mean first, we have "lost" one degree of freedom; only `n-1` data points are free to vary while the last is constrained to make the mean equal to `M_n`.
+### The Data Matrix ($\text{D}$)
+- **What it is:** A standard way to organize a dataset of `N` observations (samples) with `D` features (dimensions). It is an `N x D` matrix.
+    - Each **row** represents one data point (one person, one image, one experiment). 
+    - Each **column** represents one feature (age, height, pixel intensity, sensor reading).
+### Sample Mean Vector ($\text{M}$)
+- **Calculation:** The mean vector is calculated by taking the average of each **column** in the data matrix.  
+    `M = (1/N) * [sum of column 1, sum of column 2, ..., sum of column D]`
+- **Result:** A `D`-dimensional vector where each element is the sample mean of a specific feature.
+### Sample Covariance ($\text{C}$)
+- **Calculation:** This involves a series of steps to measure how every pair of features co-vary across the dataset.
+    1. **Center the Data:** Subtract the sample mean vector from every row of the data matrix. This creates a new matrix where every feature has a mean of zero.  
+        `D_centered = D - 1 * Mᵀ` (where `1` is a column vector of ones)
+    2. **Matrix Multiplication:** The sample covariance matrix is proportional to the matrix product of the centered data matrix with its own transpose.  
+        `C ∝ D_centeredᵀ * D_centered`.
+    3. **Apply Bessel's Correction:** To get the unbiased estimator, we scale by `1/(N-1)`.  
+        `C = (1/(N-1)) * (D_centeredᵀ * D_centered)`.
+- **Interpretation:** The resulting `D x D` matrix has the **sample variances** of each feature on the diagonal and the **sample covariances** between every pair of features on the off-diagonals. It is the empirical, data-driven version of the population covariance matrix `Σ`.
