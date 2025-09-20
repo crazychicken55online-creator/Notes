@@ -210,6 +210,73 @@ The Components (Using the Plant Example):
 	- _Example: The probability your friend would forget to water in the first place. `P(F)`._     
 	- **Total Probability of Evidence (`P(A)`):** The denominator is the total probability of seeing the evidence, calculated using the **Law of Total Probability** (from Slide 31). It acts as a normalizing constant.
 # Important Statistics: mean & variance (random scalar & vectors)  
+## Expected Value (Mean) - $\text{E[X]}$
+- What it is: The long-run average value of a random variable. It represents the "center of mass" or the central tendency of its probability distribution.
+- Why it matters: In ML, the expected value is used to define a model's prediction (e.g., the mean of a predicted distribution) and is the foundation for other concepts like bias and variance.
+- Calculation:
+    - Discrete RVs: $E[X] = Σ (x_i * P(X = x_i))$ for all possible values $x_i$.
+        - _Example: For a fair die, $\text{E[X]} = (1*1/6) + (2*1/6) + ... + (6*1/6) = 3.5$._
+    - Continuous RVs: `E[X] = ∫ x * f(x) dx` over all `x`.
+        - _This is the continuous equivalent of a weighted average, where `f(x)` is the weighting function (the PDF)._
+- Key Property - Linearity of Expectation: This is an incredibly powerful and often non-intuitive property.
+    - $\text{E[aX + bY + c] = aE[X] + bE[Y] + c}$
+    - **Crucially,** this holds **whether or not $X$ and $Y$ are independent.** This makes it much easier to work with than variance.
+## Variance - $\text{Var(X)}$
+- What it is: A measure of how much the values of the random variable **deviate from the mean**. It quantifies the spread, scatter, or variability of the distribution. Low variance means data points are clustered near the mean; high variance means they are spread out.
+- Why it matters: In ML, variance is a core component of model evaluation and optimization. A model with high variance may overfit to the training data. It's also essential for understanding uncertainty in predictions.
+- Calculation:
+    - $\text{Var(X)} = \text{E}[ (\text{X} - \text{E[X]})^{2} ]$
+    - This formula means: "Find the average of the squared distances of each value from the mean."
+- Computational Formula (Simplifies Calculation):
+    - $\text{Var(X)} = \text{E[}X^{2}\text{]} - \text{(E[}X\text{])}^{2}$
+    - _Derivation:_
+        - $\text{Var(X)} = E[(X - μ)²] = E[X^{2} - 2Xμ + μ^{2}]$
+        - $= E[X^{2}] - 2μE[X] + E[μ^{2}]$ (by linearity of expectation)
+        - $= E[X^{2}] - 2μ * μ + μ^{2}$ (because $E[X] = μ$ and $E[μ²] = μ^{2}$)
+        - $= E[X^{2}] - μ^{2}$
+- Example: If a random variable $X$ has $E[X] = 2$ and $Var(X) = 7$, what is $E[X^{2}]$?
+    - $7 = E[X^{2}] - (2)^{2}$
+    - $E[X^{2}] = 7 + 4 = 11$
+## Standard Deviation - $\text{σ}$ (sigma)
+- What it is: Simply the square root of the variance: $\text{σ} = \sqrt{\text{Var(X)}}$.
+- Why it matters: While variance is a mathematically convenient measure, it is in squared units. Standard deviation is in the original units of the data, making it much more interpretable.
+    - _Example: If $\text{X}$ is in meters, $\text{Var(X)}$ is in meters², but $\text{σ}$ is back in meters._
+## Covariance - $\text{Cov(X, Y)}$
+- What it is: Measures the **direction of the linear relationship** between two random variables.  
+- Why it matters: It's the building block for the covariance matrix, which is essential for understanding multivariate data and algorithms like Principal Component Analysis (PCA).
+- Interpretation:
+    - $\text{Cov(X, Y) > 0}$: $X$ and $Y$ tend to move in the same direction (i.e., when $X$ is above its mean, $Y$ tends to be above its mean).
+    - $\text{Cov(X, Y) < 0}$: $X$ and $Y$ tend to move in opposite directions.
+    - $\text{Cov(X, Y)} ≈ 0$:** No linear relationship. (_Note: They could have a non-linear relationship!_)
+- Calculation:
+    - $\text{Cov(X, Y) = E[ (X - E[X]) * (Y - E[Y]) ]}$
+## Correlation - $ρ$ (rho)
+- What it is: A **normalized** version of covariance. It measures both the **strength** and **direction** of a linear relationship.
+- Why it matters: Covariance's magnitude is hard to interpret because it depends on the units of $X$ and `Y`. Correlation solves this by being a dimensionless quantity between -1 and 1.
+- Calculation:
+    - $\rho = \text{Cov}(X, Y) / (\sigma_X * \sigma_Y)$
+- Interpretation:
+    - $ρ = 1$: Perfect positive linear relationship.
+    - $ρ = -1$: Perfect negative linear relationship.
+    - $ρ = 0$: No linear relationship.
+    - Important Note: Correlation does not imply causation. It also only captures linear relationships; two variables could be perfectly related in a non-linear way (e.g., a parabola) and still have $ρ = 0$.
+## Variance of a Sum
+- **What it is:** The formula for the variance of a linear combination of two random variables.
+- **Why it matters:** This is crucial for analyzing the behavior of combined signals or errors in models.
+- **Calculation:**
+    - $\text{Var(aX + bY)} = a^{2}\text{Var(X)} + b^{2}\text{Var(Y)} + \text{2ab} \text{Cov(X, Y)}$
+    - **If X and Y are independent,** $\text{Cov(X, Y) = 0}$, and the formula simplifies to $\text{Var(aX + bY)} = a^{2}\text{Var(X)} + b^{2}\text{Var(Y)}$.
+## Mean Vector - $μ$
+- **What it is:** The natural extension of the mean to higher dimensions. It is a `D`-dimensional vector where each element is the mean of one feature.
+- **Calculation:**
+    - $\mu = E[X] = [E[X_1], E[X_2], ..., E[X_D]]^{T}$
+- **Why it matters:** It pinpoints the center of the entire multi-dimensional data cloud.
+## Covariance Matrix - $\Sigma$ (Sigma)
+- **What it is:** The most important structure for understanding multi-dimensional data. It is a $D\times D$ matrix that captures the variances and covariances between all pairs of features.
+- **Calculation:**
+    - $Σ = E[ (X - μ) (X - μ)^T ]$
+    - The $\text{(i, j)}$-th entry of this matrix is $\Sigma_ij = \text{Cov}(X_i, X_j)$.
+    - The $\text{(i, i)}$-th entry (the diagonal) is $\Sigma_ii = \text{Cov}(X_i, X_i) = \text{Var}(X_i)$.
 # Gaussian Density (defined by mean and variance)  
 # Maximum Likelihood Estimation (MLE)  
 # Sample mean and Sample Variance
