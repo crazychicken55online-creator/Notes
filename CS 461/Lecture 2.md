@@ -277,6 +277,9 @@ The Components (Using the Plant Example):
     - $Σ = E[ (X - μ) (X - μ)^T ]$
     - The $\text{(i, j)}$-th entry of this matrix is $\Sigma_ij = \text{Cov}(X_i, X_j)$.
     - The $\text{(i, i)}$-th entry (the diagonal) is $\Sigma_ii = \text{Cov}(X_i, X_i) = \text{Var}(X_i)$.
+- **Why it matters (Intuition):** The covariance matrix defines the shape of the multi-dimensional data distribution.
+    - The **diagonal elements** (variances) control the **spread** of the cloud along each axis.
+    - The **off-diagonal elements** (covariances) control the **orientation** and **correlation** of the cloud. A positive covariance between height and weight, for example, means the data cloud is stretched along a diagonal where both increase together.
 # Gaussian Density (defined by mean and variance)  
 # Maximum Likelihood Estimation (MLE)  
 # Sample mean and Sample Variance
