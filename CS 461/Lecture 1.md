@@ -74,7 +74,7 @@ Change: training/updating parameters.
 Many Machine Learning schemes **already existed** before Artificial Intelligence appeared. Like: Decision, Estimation Theory, and Optimization Theory. But they are reframed as Machine Learning in the context of Artificial Intelligence in order to emphasize its ability of automatic learning and their role in achieving the tasks related to human intelligence.
 ## Birth of AI in 1956
 The study is to proceed on the basis of **conjecture** that **every aspect of learning** or any other feature of intelligence can in principle be **precisely described** such that **a machine can be made to simulate it**.
-## Two Poles in AI: Heuristic vs. Symbolic Approach
+# Two Poles in AI: Heuristic vs. Symbolic Approach
 ### Connectionism (Heuristic Approach)
 - Learns from data
 - Focuses on end effect (Cares more about correct output, method may be unknown)

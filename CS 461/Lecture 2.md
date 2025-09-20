@@ -280,6 +280,29 @@ The Components (Using the Plant Example):
 - **Why it matters (Intuition):** The covariance matrix defines the shape of the multi-dimensional data distribution.
     - The **diagonal elements** (variances) control the **spread** of the cloud along each axis.
     - The **off-diagonal elements** (covariances) control the **orientation** and **correlation** of the cloud. A positive covariance between height and weight, for example, means the data cloud is stretched along a diagonal where both increase together.
-# Gaussian Density (defined by mean and variance)  
+# Gaussian Density (defined by mean and variance) 
+## The Central Limit Theorem (CLT)
+The core idea: If you take a large number of **independent** (not related to each other) and **identically distributed** (all follow the same probability pattern) **random variables**, and calculate their average**,** the result will follow a **normal** distribution, also called a **Gaussian** distribution (a symmetric, bell-shaped curve), **even if** the original variables **do not**.
+The Process:
+- Setup:  
+	Imagine you have a list of random variables: $X_1, X_2, \dots, X_n$.  
+	Each one is:
+	- **Independent** (knowing one tells you nothing about the others), and
+	- **Identically distributed** (they all follow the same probability distribution).  
+		- Each variable has a **finite mean** (average), called $\mu$, and a **finite variance** (a measure of spread), called $\sigma^2$.
+- The Sum:  
+	Add them up to get a total:
+	$S_n = X_1 + X_2 + ... + X_n$
+- Standardization (Normalization):
+	- To compare this sum across different scales or sample sizes, we create a new variable, called the **standardized sum**:
+	 $Z_n = \frac{S_n-n^{2}\mu}{\sigma\sqrt{n}}$
+	- This transformation shifts the sum to have a **mean of 0** and **variance of 1**, which makes it easier to analyze.
+- The Central Limit Theorem says: As $n$ becomes large (the number of variables increases), the distribution of $Z_n$ gets closer and closer to a **standard normal distribution**, also called a **standard Gaussian distribution**.  
+	- This is a bell-shaped curve with a **mean of 0** and **standard deviation of 1**.
+- Mathematically: $\lim_{n \to \infty} P(Z_n \leq z) = \Phi(z)$
+	- Here, $\Phi(z)$ is the **cumulative distribution function (CDF)** of the standard normal distribution. It gives the probability that a standard normal variable is less than or equal to $z$.
+## The Gaussian (Normal) Distribution
+### Univariate Gaussian (1D)
+### Multivariate Gaussian (Multidimensional)
 # Maximum Likelihood Estimation (MLE)  
 # Sample mean and Sample Variance
