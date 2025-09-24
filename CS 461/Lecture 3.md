@@ -21,3 +21,19 @@ Vector Addition and Multiplication by a real number follows 8 rules.
 6. $(c_1*c_2)x=c_1(c_2*x)$
 7. $c(x+y)=cx+cy$
 8. $(c_1+c_2)x=c_1x+c_2x$
+### Closure
+Closure means that if you take any vectors v1 and v2 from the space and any real numbers a and b, the new vector $a*\text{v1}+b*\text{v2}$ must also be a space.
+### Subspace
+Vector Subspaces are smaller vector space within the larger space. It **must** contain the zero vector and be closed under addition and scalar multiplication.
+## Rank & Column, Row, and Null Spaces
+A matrix is a rectangular grid of numbers, as such it can be thought of as a set of column vectors or row vectors.
+### Rank
+The number of **linearly independent** vectors in its column (or row) space. Independent vectors are those that can't be created by combining the others. 
+The rank tells you the true "dimension" of the column/row space. 
+Note: **The dimension of the row space always equals the dimension of the column space.**
+### Column Space
+The set of all possible vectors you can create by taking linear combinations of the matrix's column vectors. It shows you all possible outputs of the matrix.
+### Row Space
+The set of all possible vectors you can create from the matrix's row spaces.
+### Null Space
+The set of all vectors $x$ that, when multiplied by the matrix $\text{A}$, give the zero vector ($\text{Ax} = 0$). It contains the "hidden" solutions that get squashed to zero by the matrix. The null space is always perpendicular (orthogonal) to the row space.
