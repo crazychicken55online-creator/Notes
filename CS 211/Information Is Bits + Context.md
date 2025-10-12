@@ -1,0 +1,2 @@
+The main idea is that all information in a computer system: whether it's a program, a text file, an image, or a number, are stored as a sequences of bits (0s and 1s). The only thing that distinguishes these data types is that *context* in which the system views them. For example, the same sequence of bits could be interpreted as an integer, a character in a text file, or a machine instruction depending on the program that reads it.
+
