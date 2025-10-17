@@ -1,0 +1,1 @@
+The linker (`ld`) handles the merging of the `printf` function from the standard C library with our `hello.o` program. The result is a `hello` file, which is an executable object file (or simply an executable) that is ready to use.

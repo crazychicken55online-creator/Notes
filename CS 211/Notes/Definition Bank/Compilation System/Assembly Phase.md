@@ -1,0 +1,1 @@
+The assembler (`as`) translates `hello.s` into machine-language instructions and then packages them in a form known as a relocatable object program, and stores the result in `hello.o`. The file is a binary file with 17 bytes to encode the instructions of main. Viewing `hello.o` with a text editor would result in gibberish.

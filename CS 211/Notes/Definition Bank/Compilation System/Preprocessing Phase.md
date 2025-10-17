@@ -1,0 +1,1 @@
+The preprocessor (`cpp`) modifies the original C program according to directives that being with `#`. Such as `#include <stdio.h>` in line 1 of `hello.c` tells the preprocessor to read the contents of the system header file `stdio.h` and insert it directly into the program text. The result of this is `hello.i`

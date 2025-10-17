@@ -1,0 +1,4 @@
+- Buses transport information around the system, they are electrical conduits that run throughout the system and carry bytes of information back and forth between the components.
+- Buses are usually designed to transfer fixed-sized chunks of bytes known as **words**.
+- The number of bytes is a fundamental system parameter (the bus is designed to transport that amount, it can't be changed).
+- Most machines today have either 4 bytes (32 bits) or 8 bytes (64 bits) word sizes.

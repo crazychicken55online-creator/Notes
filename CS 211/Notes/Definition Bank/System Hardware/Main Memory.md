@@ -1,0 +1,3 @@
+- Main memory is a temporary storage device that holds both the program and the data it manipulates while the processor is executing the program.
+- Main memory consists of a collection of **dynamic random access memory (DRAM)** chips.
+- The memory is organized as a linear array of bytes, each with its own address (array index) starting at 0.

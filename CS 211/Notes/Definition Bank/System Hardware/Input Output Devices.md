@@ -1,0 +1,6 @@
+- I/O Devices (Input/Output Devices) are the system's connection to the real world, it is how it reads input (think keyboard, microphone, touchscreen, etc.) and gives an output (monitor, speaker, etc.).
+- Our example system (from the diagram above) has 4 I/O devices: a keyboard and a mouse for user input, a display for user input, and a disk drive (or simply disk) for long-term storage of data and programs.
+- Each I/O device is connected to the I/O bus by either a **controller** or an **adapter**.
+	- Controllers are chip sets in the device itself or on the system's main printed circuit board (motherboard).
+	- Adapters are cards that plug into a slot on the motherboard.
+	- They both serve the same purpose of transferring information back and forth between the I/O bus and I/O devices.
