@@ -1,7 +1,8 @@
 1.1 [[Information Is Bits + Context]]
 1.2 [[Programs Are Translated by Other Programs into Different Forms]]
 1.4 [[Hardware Organization of a System]]
-1.5 [[Caches]]
+1.5-1.6 [[Caches]]
+1.7 [[The OS manages the Hardware]]
 
 ## Course Topics
 - C programming
