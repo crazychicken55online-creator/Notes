@@ -1,5 +1,5 @@
 - Also known as the **Central Processing Unit (CPU)** interprets (executes) instructions stored in main memory.
-- At the core of the CPU is a word-size storage device (register) called the **program counter (PC)**.
+- At the core of the CPU is a word-size storage device (register) called the [[Program Counter|program counter (PC)]].
 - At any point in time the PC points at (contains the address of) some machine-language instruction in main memory.
 - A processor operates according to a very simple instruction execution model, which is defined by its **instruction set architecture**.
 	- In the above model, instructions execute in a strict sequence, and executing those instructions requires a series of steps.

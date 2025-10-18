@@ -1,0 +1,2 @@
+- In an operating system (OS) a file is an abstraction of **ALL** [[Input Output Devices|I/O devices]]. Including, hard drives, keyboards, monitors, and even networks.
+- The OS presents all these different and complex devices to your program as a sequence of bytes, meaning that your program can do a simple read/write to get input from a keyboard, read data from a disk, or send data to a monitor.

@@ -3,6 +3,7 @@
 1.4 [[Hardware Organization of a System]]
 1.5-1.6 [[Caches]]
 1.7 [[The OS manages the Hardware]]
+2.1 [[Information Storage]]
 
 ## Course Topics
 - C programming

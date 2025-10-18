@@ -1,0 +1,15 @@
+- The program counter (PC) is a special register in the CPU, that keeps track of the address of the next instruction to be executed.
+- The CPU uses the address in the PC to fetch the next instruction from memory.
+- After fetching, the PC is automatically incremented to point to the next instruction.
+- The PC is effectively a "next instruction address" tracker.
+# Notes about concurrency
+- During execution:
+	- The program counter (PC) always points to the next instruction of the currently running program.
+	- The CPU executes that instruction, updates the PC, and so on.
+- When the OS decides to context switch:
+	- The OS saves the current CPU state, which includes the PC, general-purpose registers, stack pointer, etc.
+	- These values are stored in either the process's PCB (Process Control Block) or temporarily on the kernel stack (depending on implementation).
+- The OS then loads another process:
+	- It retrieves that process's previously saved PC and registers from its PCB (or kernel stack depending on implementation).
+	- It loads those values back into the CPU.
+	- Now the CPU's PC points to the next instruction of the new program, and execution continues from there.
