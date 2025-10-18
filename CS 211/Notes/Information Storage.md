@@ -3,3 +3,5 @@
 - As a fix for this, we write bit patterns as base-16, or hexadecimal numbers.
 # Hexadecimal Notation
 ![[Hexadecimal Notation]]
+
+# Data Sizes
