@@ -1,0 +1,2 @@
+- Word size is the number of bits a processor can handle or process at one time.
+- Word size is the maximum and most optimal number of bits a processor can handle at once
