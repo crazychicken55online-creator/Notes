@@ -1,6 +1,6 @@
 - A single byte consists of 8 bits. In binary notation, its values range from $00000000_2$ to $11111111_2$. When viewed a decimal integer, its values range from $0_{10}$ to $255_{10}$.
 	- Binary notation is too verbose, while decimal notation is too tedious to convert back and forth from.
-- As a fix for this, we write bit patterns as base-16, or hexadecimal numbers.
+- As a fix for this, we write bit patterns as base-16, or as hexadecimal numbers.
 # Hexadecimal Notation
 ![[Hexadecimal Notation]]
 
@@ -36,5 +36,48 @@
 
 - Using the ASCII table, if we want to represent "hello" in binary, it would be 01101000 01100101 01101100 01101100 01101111. In hexadecimal, it would be 0x68656C6C6F.
 # Introduction to Boolean Algebra
-- The binary values 1 and 0 represent true and false.
-- 
+- The binary values 1 and 0 represent true and false respectively.
+- # Operations in Boolean Algebra![[Operations in Boolean Algebra]]
+# Bit-Level Operations in C
+- [[Operations in Boolean Algebra|Boolean operations]] mentioned previously can be used in C for any "integral" data type.
+> [!example] Example with Char
+![[Char Bit Operations Example.png]]
+
+- The best way to figure out the effect of a bit-level expression is to expand the hexadecimal arguments to their binary representations, perform the operations in binary, and then convert back to hexadecimal.
+- Bit-level operations in C are primarily used for masking.
+	- Masking operations in C are a way to manipulate selected bits of a variable using bitwise operators, allowing deep control of data at the binary level.
+```C title=Masking_Example.c
+#define MASK 0x0F
+// Extract bits (masking)
+unsigned char value = 0b10101100;
+unsigned char mask  = 0b00001111;
+unsigned char result = value & mask;  // result = 0b00001100
+// Set specific bits (masking)
+unsigned char value = 0b10100000;
+unsigned char mask  = 0b00001111;
+value = value | mask;  // value = 0b10101111
+// Clear specific bits (masking)
+unsigned char value = 0b11111111;
+unsigned char mask  = 0b00001111;
+value = value & ~mask;  // value = 0b11110000
+// Toggle bits (masking)
+unsigned char value = 0b10101010;
+unsigned char mask  = 0b00001111;
+value = value ^ mask;  // value = 0b10100101
+```
+# Logical Operations in C
+- C has a set of 3 logical operators: `!`,`&&`, and `||`, which correspond to NOT, AND, and OR.
+- These operators return True `0x01` or False `0x00` as False (1 or 0).
+- The logical operations treat any nonzero argument as representing True and argument 0 as representing False.
+
+| Expression     | Result |
+| -------------- | ------ |
+| !0x41          | 0x00   |
+| !0x00          | 0x01   |
+| !!0x41         | 0x01   |
+| 0x69 && 0x55   | 0x01   |
+| 0x69 \|\| 0x55 | 0x01   |
+- An important distinction to make between bitwise operators and logical operators is that logical operators do not evaluate their second argument if the result of that expression can be determined by just evaluating the first.
+	- E.g., The expression `a && 5/a` will never cause a division by 0, and the expression `p && *p++` will never cause the dereferencing of a null pointer.
+# Shift Operations in C
+![[Shift Operations]]
