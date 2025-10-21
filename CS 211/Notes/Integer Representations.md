@@ -53,4 +53,25 @@ When read in reverse, the binary representation of $43_{10}$ is $101011_2$
 	- This is where the two's complement representation comes in.
 For vector $\vec{x} = [x_{x-1},x_{w-2}, ..., x_0]$:
 $$B2T_w(\vec{x})\doteq -x_{w-1}2^{w-1}+\sum_{i=0}^{w-2}x_i2^i$$
+A list of examples of this in action (it's converting binary to decimal):
+$$B2T_w([0001])=-0*2^3+0*2^2+0*2^1+1*2^0=-0+0+0+1 = 1$$
+$$B2T_w([0101])=-0*2^3+1*2^2+0*2^2+1*2^0=-0+4+0+1=5$$
+$$B2T_w([1011])=-1*2^3+0*2^2+1*2^2+1*2^0=-8+0+2+1=-5$$
+$$B2T_w([1111])=-1*2^3+1*2^2+1*2^2+1*2^0=-8+4+2+1=-1$$
 
+Just like the unsigned encodings twos complement also has an inverse (converts decimal to twos complement encoded binary) $T2B_w$
+# Alternative Methods of Encoding Signed Numbers
+- Should be noted that two's complement is considered standard and that these other 2 encodings are seldom used.
+## One's Complement
+It's the same as twos complement ($B2T_w$) but the most significant bit has weight $-(2^{w-1}-1)$ rather than $-2^{w-1}$:
+$$B2O_w(\vec{x})\doteq -x_{w-1}(2^{w-1}-1)+\sum_{i=0}^{w-2}x_i2^i$$
+An example of one's complement in action (once again, it is converting binary to a signed decimal number):
+- There are two ways of pulling this off.
+### Simple Way:
+- You can convert the binary to one's complement encoded binary by flipping the 1s and 0s.
+	- E.g., $00001011_2$ ($11_{10}$) in unsigned binary is $11110100_2$ in one's complement binary and represents $-11_{10}$.
+		- The math for this can be done like so:
+			- You need to flip it again so $11110100_2$ turns into $00001011_2$ then because the sign bit of the one's complement (pre-flip) was negative, you multiply it by -1, so you get: $-1*11=-11$.
+		- Should also be noted that one's complement signed numbers will not have the same range as unsigned numbers (you will need more bits at times to represent the same number as a negative number as unsigned has twice the range of signed).
+- A quirk of one's complement is that it has 2 representations for zero: $0000_2$ which represents positive zero, and $1111_2$ which represents negative zero.
+# Sign Magnitude
