@@ -60,6 +60,24 @@ $$B2T_w([1011])=-1*2^3+0*2^2+1*2^2+1*2^0=-8+0+2+1=-5$$
 $$B2T_w([1111])=-1*2^3+1*2^2+1*2^2+1*2^0=-8+4+2+1=-1$$
 
 Just like the unsigned encodings twos complement also has an inverse (converts decimal to twos complement encoded binary) $T2B_w$
+### Conversion from Twos complement to unsigned is as follows:
+For $x$ such that $TMin_w \leq x \leq TMax_w$:
+$$
+T2w(x) = 
+\begin{cases}
+x + 2w, & \text{if } x < 0 \\
+x, & \text{if } x \geq 0
+\end{cases}
+$$
+### Conversion from unsigned to twos complement is as follows:
+For $u$ such that $0 \leq u \leq UMax_w$:
+$$
+U2W(x) = 
+\begin{cases}
+u, & \text{if } u \leq TMax_w \\
+u-2^w, & \text{if } u > TMax_w
+\end{cases}
+$$
 # Alternative Methods of Encoding Signed Numbers
 - Should be noted that two's complement is considered standard and that these other 2 encodings are seldom used.
 ## One's Complement
@@ -74,4 +92,9 @@ An example of one's complement in action (once again, it is converting binary to
 			- You need to flip it again so $11110100_2$ turns into $00001011_2$ then because the sign bit of the one's complement (pre-flip) was negative, you multiply it by -1, so you get: $-1*11=-11$.
 		- Should also be noted that one's complement signed numbers will not have the same range as unsigned numbers (you will need more bits at times to represent the same number as a negative number as unsigned has twice the range of signed).
 - A quirk of one's complement is that it has 2 representations for zero: $0000_2$ which represents positive zero, and $1111_2$ which represents negative zero.
-# Sign Magnitude
+## Sign Magnitude
+- In sign magnitude, the most significant bit is a sign bit that determines whether the remaining bits should be given positive or negative weight:
+$$B2S_w(\vec{x})\doteq (-1)^{x_{w-1}}*(\sum_{i=0}^{w-2}x_i2^i)$$
+# Expanding the Bit Representation of a Number
+## Zero Extension
+- To convert an unsigned number into a larger data type we can simply adding leading zeroes to the representation.
