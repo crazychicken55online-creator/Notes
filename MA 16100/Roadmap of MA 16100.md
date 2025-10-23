@@ -1,4 +1,5 @@
 # Notes
+1.1-1.2 [[Reviewing Functions]]
 # Course Objectives
 - Solve exponential, logarithmic, and trigonometric equations.
 - Compute limits and to apply limit laws.

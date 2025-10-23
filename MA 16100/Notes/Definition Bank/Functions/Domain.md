@@ -1,0 +1,2 @@
+- The domain is a set of all possible input values for a [[Functions|function]] that produce a valid output.
+	- Some illegal values include values that result in division by zero, values that result in even roots of a negative number, etc. 

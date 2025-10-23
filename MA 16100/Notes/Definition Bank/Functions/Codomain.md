@@ -1,0 +1,3 @@
+- The set of all possible values a function could theoretically produce.
+	- This differs from the definition of the [[Range|range of a function]] as the codomain is the set of all potential output values, while the range is the set of all actual output values the function produces.
+		- Should be noted that the range is always within the codomain: $\text{Range} \subseteq \text{Codomain}$
