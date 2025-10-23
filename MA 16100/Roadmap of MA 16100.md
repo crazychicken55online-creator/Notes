@@ -10,6 +10,8 @@
 - Compute areas of certain planar regions
 ## Textbook Used
 [[Calculus, Early Transcendentals, (Third Edition) by Briggs, Cochran, Gillett, Schulz.pdf|Calculus, Early Transcendentals, (Third Edition) by Briggs, Cochran, Gillett, Schulz]].
+# Past Exams
+[Past Exam Archive - Department of Mathematics - Purdue University](https://www.math.purdue.edu/academic/courses/oldexams?course=MA16100)
 ## Lesson Plan
 | **Lesson** | **Textbook Sections** | **Topic**                                    | **Homework**                                                              |
 | :--------- | :-------------------- | :------------------------------------------- | :------------------------------------------------------------------------ |
