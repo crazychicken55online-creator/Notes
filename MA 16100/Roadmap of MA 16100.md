@@ -12,7 +12,8 @@
 [[Calculus, Early Transcendentals, (Third Edition) by Briggs, Cochran, Gillett, Schulz.pdf|Calculus, Early Transcendentals, (Third Edition) by Briggs, Cochran, Gillett, Schulz]].
 # Past Exams
 [Past Exam Archive - Department of Mathematics - Purdue University](https://www.math.purdue.edu/academic/courses/oldexams?course=MA16100)
-## Lesson Plan
+## Homework Guideline
+
 | **Lesson** | **Textbook Sections** | **Topic**                                    | **Homework**                                                              |
 | :--------- | :-------------------- | :------------------------------------------- | :------------------------------------------------------------------------ |
 | L01        | §1.1, §1.2            | Review of Functions / Representing Functions | §1.1: 7,11,15,25,31,45 <br> §1.2: 3,9,13,21,29,39                         |
