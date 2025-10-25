@@ -36,7 +36,8 @@ $$
 $$
 \text{Binary digits} = \{r_{i-1}, r_{i-2}, \ldots, r_0\} \quad \text{(read in reverse order)}
 $$
-- Example of this in action with 43:$$
+- Example of this in action with 43:
+$$
 \begin{align}
 \frac{43}{2} &= 21,\ \text{remainder = 1} \\
 \frac{21}{2} &= 10,\ \text{remainder = 1} \\
@@ -44,8 +45,7 @@ $$
 \frac{5}{2}  &= 2,\ \text{remainder = 1} \\
 \frac{2}{2}  &= 1,\ \text{remainder = 0} \\
 \frac{1}{2}  &= 0,\ \text{remainder = 1}
-\end{align}
-$$
+\end{align}$$
 
 - When read in reverse, the binary representation of $43_{10}$ is $101011_2$
 # Two's Complement Encodings
