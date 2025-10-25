@@ -59,7 +59,7 @@ $$B2T_w([0101])=-0*2^3+1*2^2+0*2^2+1*2^0=-0+4+0+1=5$$
 $$B2T_w([1011])=-1*2^3+0*2^2+1*2^2+1*2^0=-8+0+2+1=-5$$
 $$B2T_w([1111])=-1*2^3+1*2^2+1*2^2+1*2^0=-8+4+2+1=-1$$
 
-	Just like the unsigned encodings twos complement also has an inverse (converts decimal to twos complement encoded binary) $T2B_w$
+Just like the unsigned encodings twos complement also has an inverse (converts decimal to twos complement encoded binary) $T2B_w$
 ### Conversion from Twos complement to unsigned is as follows:
 For $x$ such that $TMin_w \leq x \leq TMax_w$:
 $$
@@ -108,4 +108,9 @@ $$B2S_w(\vec{x})\doteq (-1)^{x_{w-1}}*(\sum_{i=0}^{w-2}x_i2^i)$$
 	- E.g., $0101_2 = 5_{10} = 00000101_2$ (filled with 0 as that is the sign bit) and $1101_2 = -3_{10} = 11111101_2$ (filled with 1 as that is the sign bit).
 # Truncating Numbers
 - This happens when you cast from a larger data type to a smaller data type (think about it: if you have a larger data type, it likely has more data (e.g., a bigger number), so when you cast it to a smaller data type it will lose some data).
-- When a number is truncating the higher order bits (least significant bits) are discarded.
+- When a number is truncating the higher order bits (most significant bits) are discarded.
+- For **unsigned** bits the new number becomes $x\pmod{2^k}$ where $x$ is the original number and $k$ represents the new, smaller, number of bits.
+	- E.g., Converting $1010 0111_2$ from 8 bits to 4 bits will result in $0111_2$ as the 4 higher order bits are discarded, using the equation we can double check this as $1010 0111_2=167_{10}$ and ${167\pmod{2^4}=167\pmod{16}=7}$ and $0111_2=7_{10}$.
+- For **signed** bits the higher order bits are removed but the new resulting binary is re-interpreted as a two's complement number where the new most significant bit becomes the sign bit.
+	- E.g., Converting $167_{10}$ from 9 bits to 4 will result in the first 5 bits of $010100111_2$ (note that this is different from the representation of $167_{10}$ from the previous example as this is the twos complement representation of $167_{10}$ which is a 9 bit number) being removed, resulting in $0111_2$ here the MSB is a positive number so the new number actually becomes ${7_{10}}$.
+	- This is tricky and truncating often results in data loss or bad numbers.
