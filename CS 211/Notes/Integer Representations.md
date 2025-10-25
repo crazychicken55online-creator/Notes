@@ -19,7 +19,7 @@ So if we had a 4-bit number, the maximum value that number can have is $2^4 - 1 
 - It should be noted that the function $B2U_w$ is a bijection, which is to say that it goes both ways, or has an inverse.
 	- What this means is that while $B2U_w$ converts binary to decimal, there exists a $U2B_w$ (Unsigned to Binary) which converts a decimal value into binary.
 ## Unsigned to Binary $U2B_w$
-The simple way of doing this is as follows:
+- The simple way of doing this is as follows:
 $$
 \begin{cases}
 N_0 = N \\
@@ -36,7 +36,7 @@ $$
 $$
 \text{Binary digits} = \{r_{i-1}, r_{i-2}, \ldots, r_0\} \quad \text{(read in reverse order)}
 $$
-Example of this in action with 43:$$
+- Example of this in action with 43:$$
 \begin{align}
 \frac{43}{2} &= 21,\ \text{remainder = 1} \\
 \frac{21}{2} &= 10,\ \text{remainder = 1} \\
@@ -47,7 +47,7 @@ Example of this in action with 43:$$
 \end{align}
 $$
 
-When read in reverse, the binary representation of $43_{10}$ is $101011_2$
+- When read in reverse, the binary representation of $43_{10}$ is $101011_2$
 # Two's Complement Encodings
 - Writing just positive (unsigned) integers are not enough, we need to write negative values as well.
 	- This is where the two's complement representation comes in.
@@ -59,7 +59,7 @@ $$B2T_w([0101])=-0*2^3+1*2^2+0*2^2+1*2^0=-0+4+0+1=5$$
 $$B2T_w([1011])=-1*2^3+0*2^2+1*2^2+1*2^0=-8+0+2+1=-5$$
 $$B2T_w([1111])=-1*2^3+1*2^2+1*2^2+1*2^0=-8+4+2+1=-1$$
 
-Just like the unsigned encodings twos complement also has an inverse (converts decimal to twos complement encoded binary) $T2B_w$
+	Just like the unsigned encodings twos complement also has an inverse (converts decimal to twos complement encoded binary) $T2B_w$
 ### Conversion from Twos complement to unsigned is as follows:
 For $x$ such that $TMin_w \leq x \leq TMax_w$:
 $$
@@ -96,5 +96,16 @@ An example of one's complement in action (once again, it is converting binary to
 - In sign magnitude, the most significant bit is a sign bit that determines whether the remaining bits should be given positive or negative weight:
 $$B2S_w(\vec{x})\doteq (-1)^{x_{w-1}}*(\sum_{i=0}^{w-2}x_i2^i)$$
 # Expanding the Bit Representation of a Number
+- This happens when you cast from a smaller data type (like `short`) to a larger data type (like `int`).
+	- See also: [[Integer Representations#Integral Data Types|Integral data types in C]].
 ## Zero Extension
-- To convert an unsigned number into a larger data type we can simply adding leading zeroes to the representation.
+- To convert an unsigned number into a larger data type we can simply adding leading zeroes to the representation, the value remains unchanged.
+	- E.g., casting a `short` (2 bytes) $1111 1010_2$ to `int` (4 bytes) would result in $0000 0000 1111 1010_2$. Both of which represent the same number as the leading zeroes do not add anything to the original value.
+## Sign Extension
+- This is what we'd use for signed data types as adding leading zeroes to a signed data type will switch its value (think: $1010_2$ in twos complement binary represents $-6_{10}$ adding zeroes to this will actually change the sign of the number and make it a positive number).
+	- See also: [[#Two's Complement Encodings|Binary representation of signed numbers]].
+- As such, instead of filling the leading bits with zeroes, we can fill it with copies of the sign bit, not also how this does not change the value of the number either.
+	- E.g., $0101_2 = 5_{10} = 00000101_2$ (filled with 0 as that is the sign bit) and $1101_2 = -3_{10} = 11111101_2$ (filled with 1 as that is the sign bit).
+# Truncating Numbers
+- This happens when you cast from a larger data type to a smaller data type (think about it: if you have a larger data type, it likely has more data (e.g., a bigger number), so when you cast it to a smaller data type it will lose some data).
+- When a number is truncating the higher order bits (least significant bits) are discarded.
