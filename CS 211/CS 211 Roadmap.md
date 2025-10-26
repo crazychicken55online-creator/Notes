@@ -6,6 +6,7 @@
 1.7 [[The OS manages the Hardware]]
 2.1 [[Information Storage]]
 2.2 [[Integer Representations]]
+2.3 [[Integer Arithmetic]]
 ## Modern C
 ## Course Topics
 - C programming
