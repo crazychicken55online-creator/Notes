@@ -1,3 +1,4 @@
+# [Machine Learning Principles](https://www.cs.rutgers.edu/academics/undergraduate/course-synopses/course-details/01-198-461-machine-learning-principles)
 # Textbooks
 [[Christopher Bishop, Pattern Recognition and Machine Learning.pdf|Christopher Bishop, Pattern Recognition and Machine Learning]]
 [[Kevin P. Murphy, Probabilistic Machine Learning An Introduction.pdf|Kevin P. Murphy, Probabilistic Machine Learning: An Introduction]]

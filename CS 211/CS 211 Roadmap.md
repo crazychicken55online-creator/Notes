@@ -1,3 +1,4 @@
+# [Computer Architecture](https://www.cs.rutgers.edu/academics/undergraduate/course-synopses/course-details/01-198-211-computer-architecture)
 ## Computer Systems, A Programmer's Perspective
 1.1 [[Information Is Bits + Context]]
 1.2 [[Programs Are Translated by Other Programs into Different Forms]]
