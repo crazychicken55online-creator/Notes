@@ -5,3 +5,6 @@
 # Math
 ### [[MA 16100 Roadmap|Plane Analytic Geometry And Calculus I - MA 16100]]
 ### [[6.042 Roadmap|Mathematics for Computer Science - MIT 6.042]]
+# Science
+### [[3.091 Roadmap|Introduction to Solid State Chemistry - MIT 3.091]]
+### [[8.01 Roadmap|Classical Mechanics - MIT 8.01]]
