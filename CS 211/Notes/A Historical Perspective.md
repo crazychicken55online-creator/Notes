@@ -1,0 +1,4 @@
+- Computers execute machine code, which are sequences of bytes encoding the low-level operations that manipulate data, manage memory, read and write data on storage devices, and communicate over networks.
+	- A compiler generates this machine code through a series of stages, based on the rules of the programming language, the instruction set of the target machine, and the conventions follows by the operating system.
+	- See also: [[Programs Are Translated by Other Programs into Different Forms]].
+- The instruction set architecture (ISA) is the interface between software and hardware.

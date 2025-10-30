@@ -78,3 +78,19 @@ E.g., Represent $x=-0.75$ as a float (32-bit).
 | Fraction (F) (23 bits) | 0.1   | 10000000000000000000000 |
 Final binary representation: $1\ 01111110\ 10000000000000000000000_2$
 # Rounding
+- IEEE 754 defines four rounding modes. The default is Round-to-Nearest (also known as Round-to-Even).
+- Round-to-even rounds to the nearest representable number.
+	- If a number if **exactly** half way between 2 representable numbers, it rounds to the one that makes the **least significant bit** **even**.
+		- This avoids the statistical bias of always rounding 0.5 up.
+	- E.g., 1.23 rounds to 1.2, 1.27 rounds to 1.3, 1.25 rounds to 1.2 (2 is even), 1.35 rounds to 1.4 (4 is even).
+# Floating Point Operations
+- The result of a floating point operation is the exact mathematical value of that operation, it is rounded after the calculation to fit the format.
+- Floating point operations are not associative or distributive.
+- Floating point multiplication and addition are both commutative.
+# Floating Point in C
+- C has 2 types of floating points, `float` and `double`.
+- Results of type casting floating points with various data types:
+	- `int` to `float`: May round, but won't overflow.
+	- `int` or `float` to `double`: Value is preserved exactly. 
+	- `double` to `float`: May round and may overflow to $\pm\infty$.
+	- `float` or `double` to `int`: **Rounds toward zero.** May overflow.
