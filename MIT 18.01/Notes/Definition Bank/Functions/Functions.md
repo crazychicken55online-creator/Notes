@@ -5,7 +5,7 @@
 - The graphs of functions **must** pass through the vertical line test (a visual test to ensure that each input only maps to one output).
 	- You draw out the function and then draw vertical lines at each point of the graph, if no vertical line passes through the function more than once then the function is valid.
 > [!example] Vertical Line Test Visualization
-> ![[Vertical line test visualization.png|500]]
+> ![[Vertical Line Test.png|500]]
 
 Notice in the above image that the first function does not actually represent a function as it fails the vertical line test, meanwhile the second function does.
 
