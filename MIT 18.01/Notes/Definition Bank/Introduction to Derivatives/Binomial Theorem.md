@@ -1,0 +1,1 @@
+The binomial theorem is a formula that expands the expression $(a+b)^n$ into sum of terms, where $n$ is a non-negative integer. The formula is given by $\sum_{k=0}^{n}\binom{n}{k}a^{n-k}b^k$ and its coefficients are found in Pascal's Triangle.
