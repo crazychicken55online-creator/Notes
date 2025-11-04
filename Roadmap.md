@@ -8,3 +8,5 @@
 # Science
 ### [[3.091 Roadmap|Introduction to Solid State Chemistry - MIT 3.091]]
 ### [[8.01 Roadmap|Classical Mechanics - MIT 8.01]]
+# Misc.
+### [[COMP PROG Roadmap|COMPETITIVE PROGRAMMING]]
