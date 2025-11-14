@@ -12,8 +12,10 @@ See also: [01:198:416 - Operating Systems Design](https://www.cs.rutgers.edu/aca
 # Textbook Used
 http://pages.cs.wisc.edu/~remzi/OSTEP/
 [[Remzi Arpaci-Dusseau, Andrea Arpaci-Dusseau - Operating Systems_ Three Easy Pieces.pdf]]
+See also: https://pages.cs.wisc.edu/~remzi/Classes/537/
 # Lecture Videos
 [CS 537: OS | University of Wisconsin-Madison - YouTube](https://www.youtube.com/playlist?list=PLzBbfbHQmjyuqBFJ8KpDdcvnLNkvPXbS-)
+[CS 537: Videos](https://pages.cs.wisc.edu/~remzi/Classes/537/Spring2018/Discussion/videos.html)
 # Homework
 [OSTEP Homework - GitHub](https://github.com/remzi-arpacidusseau/ostep-homework/)
 # Projects
