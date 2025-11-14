@@ -2,3 +2,6 @@
 	- A compiler generates this machine code through a series of stages, based on the rules of the programming language, the instruction set of the target machine, and the conventions follows by the operating system.
 	- See also: [[Programs Are Translated by Other Programs into Different Forms]].
 - The instruction set architecture (ISA) is the interface between software and hardware.
+- ### CISC vs. RISC
+- CISC stands for Complex Instruction Set Computer, x86 is a CISC architecture. It has many instructions, some of which are very complex (like an instruction that moves a whole block of memory). Instructions can also have variable lengths (from 1 to 15 bytes).
+- RISC stands for Reduced Instruction Set Computer, ARM is a RISC architecture. It has fewer, simpler, instructions that are all fixed length (e.g., 4 bytes). It emphasizes a load/store architecture where arithmetic operations can only use register operands, not memory operands.

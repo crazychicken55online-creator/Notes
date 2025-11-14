@@ -13,6 +13,7 @@
 2.4 [[Floating Point]]
 ### Machine-Level Representation of Programs
 3.1 [[A Historical Perspective]]
+3.2 [[Program Encodings]]
 ## Modern C
 ## Course Topics
 - C programming
