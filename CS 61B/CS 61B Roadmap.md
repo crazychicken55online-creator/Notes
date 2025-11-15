@@ -1,4 +1,11 @@
 # [Data Structures and Algorithms](https://datastructur.es/)
+# Notes
+##### Instance Variables, Defining and Using Classes, Lists, Sets, and Maps
+[[Defining a Typical Class in Java]]
+- [[Static vs. Non-Static]]
+[[Lists]]
+[[Arrays]]
+[[Maps]]
 # Course Objectives
 - Learn to implement and use fundamental dynamic data structures such as lists, queues, trees, hash tables, and arrays.  
 - Understand algorithmic design and analysis of basic algorithms (e.g., sorting, searching) and how data structure choice affects performance (time/space trade-offs).  
