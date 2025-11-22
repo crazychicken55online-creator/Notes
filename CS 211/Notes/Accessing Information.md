@@ -1,0 +1,11 @@
+- An x86-64 central processing unit (CPU) contains a set of 16 *general purpose registers* storing 64-bit values.
+	- These registers are used to store integer data as well as pointers.
+- The original 8086 had eight 16-bit registers which all start with `%r` and are suffixed with `%ax` through `%bp`.
+- With the extension to [IA32](https://en.wikipedia.org/wiki/IA-32), which is the 32-bit version of the x86 instruction set architecture, designed by Intel, these registers were expanded to 32-bit registers, labeled `%eax` through `%ebp`.
+- In the extension x86-64 (the modern 64-bit instruction set architecture), the original eight registers were expanded to 64 bits, labeled `%rax` through `%rbp`.
+	- In addition, 8 new registers were added, were labeled `%r8` through `%r15`.
+---
+- Instructions can operate on data of different sizes stored in the low-order bytes of the 16 registers (least significant bits).
+- When instructions have registers as destinations, two conventions are followed regarding the remaining bytes in the register for instructions that generate less than 8 bytes:
+	- Those that generate 1 or 2-byte (8 or 16-bits) leave the remaining bytes unchanged.
+	- Those that generate 4-byte quantities set the upper 4 bytes (32-bits) of the register to zero.

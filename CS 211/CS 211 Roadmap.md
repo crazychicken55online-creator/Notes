@@ -14,6 +14,8 @@
 ### Machine-Level Representation of Programs
 3.1 [[A Historical Perspective]]
 3.2 [[Program Encodings]]
+3.3 [[Data Formats]]
+3.4 [[Accessing Information]]
 ## Modern C
 ## Course Topics
 - C programming
