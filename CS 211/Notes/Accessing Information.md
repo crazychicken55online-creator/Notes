@@ -93,3 +93,9 @@ Look at the below example `c` and `assembly` code.
 ---
 # Pushing and Popping Stack Data
 - A stack is a LIFO (Last in First Out) data structure.
+	- It has 2 instructions: push and pop.
+	- The key property is that the value popped will always be the value that was most recently pushed and is still on the stack.
+> [!info] Push and Pop Instructions
+![[Push and Pop Instructions.png]]
+
+Pushing a quad word value onto the stack involves first decrementing the stack pointer by 8 and then writing the value at the new top-of-stack address.
