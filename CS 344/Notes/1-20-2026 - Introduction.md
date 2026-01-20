@@ -10,7 +10,7 @@
 	- Write one of the factors across the top and then write the other one down the right side.
 	- ![[Lattice Multiplication Example.png]]
 	- For each number combination (8 and 3, 4 and 6, etc.) find the box where the intersect and record the resulting multiplication.
-	- ![[Pasted image 20260120142107.png]]
+	- ![[lattice multiplication example 2.png]]
 	- This tells us that there are 8 ones, 4+4+4 = 12 tens which will end up being 2 tens with a carry, 2+2+2 = 6 hundreds but you need to add the one from the carry so it's 7 hundreds, and 1 thousands.
 	- Therefore, via lattice multiplication, we know that the digits are 1,7,2,8 so $48\times 36 = 1728$
 	
