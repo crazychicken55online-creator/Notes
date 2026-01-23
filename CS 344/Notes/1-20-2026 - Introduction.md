@@ -37,7 +37,23 @@ If the tax man comes to your door and says, "You have never paid taxes!"
 	- **How Fast**: An analysis of the running time of the algorithm (Big O).
 ## Breadth First Search (BFS)
 ## Numerical Algorithms
+- Numerical algorithms solve mathematical problems through numerical approximation.
+- Numerical algorithms are common in scientific computing, engineering and finance.
+- E.g., Root finding, Numerical integration, and solving differential equations.
+- E.g. 2, Computing $\pi$: 
+	- *Note that $\pi$ is the area of a circle when radius = 1*
+	- You could use the *Monte Carlo* Method:
+		- You generate random points in a unit square.
+		- Count said points inside the circle.
+		- Estimate $\pi$ as $4\times \text{(points in circle/total points)}$
+	- You could use the *Leibniz Formula*.
+	- You could use *Ramanujan's Formula*.
 ## RSA Cryptosystem
+- RSA stands for Rivest-Shamir-Adleman.
+- An RSA Algorithm is a security algorithm based on the hardness of factoring large n.
+- It works via asymmetric encryption, as the RSA cryptosystem requires both a public key and a private key, unlike symmetric systems which only use one key.
+- The public key (shared with everyone) is used to encrypt data and the private key (secret) is used to decrypt data.
+- It works based off of the difficulty of factoring the product of two large prime numbers, also known as the *prime factorization problem*.
 ## Euclid's Algorithm
 - Developed by ancient Greek mathematician Euclid around 300 BC to find the Greatest Common Divisor (GCD) of two integers.
 ```python
@@ -48,6 +64,10 @@ def function gcd(a, b):
 		return gcd(b, a % b)
 ```
 ## Linear Programming
+- In Linear Programming you must first determine the best possible outcome (such as maximum profit or lowest cost).
+- You must find the **Objective Function**: A linear function that is to be maximized or minimized.
+- You must find the **Constraints**: Linear inequalities or equations that restrict the values of the variables.
+- Linear Programming is widely used in industries for resource allocation, production scheduling, transportation, and logistics.
 # Design Techniques
 ## Divide and Conquer
 - Break a problem into smaller sub-problems, solve each independently, and combine their solutions.
