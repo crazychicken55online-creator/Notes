@@ -19,6 +19,23 @@ Proof of correctness:
 		- Then `MAX = max{A[1], ..., A[k+1}}`.
 	- Conclusion: `MAX` is the largest element in A.
 ## Euclid's Algorithm
+```python
+def gcd(a, b):
+	 if b == 0:
+		 return a
+	else:
+		return gcd(b, a % b)
+```
+Proof of Correctness:
+- Base case:
+	- if `b = 0`, the algorithm returns `a`.
+	- `gcd(a,0) = a`, since any number divides 0.
+		- `a mod 0 = a`
+- Inductive Step:
+	- To prove Euclid's Algorithm we need to use the fact that `gcd(a,b) = gcd(b, a mod b)`
+	- Basically, `d` divides `a` and `b` if `d` divides `a` and `a mod b`.
+		- In each recursive call, `b` becomes smaller, and the recursion continues until `b = 0`.
+		- The algorithm terminates when `b = 0`, guaranteeing correctness.
 # Time Complexity
 How do we "measure" the running time of an algorithm?
 - Experiments: Plot the run times for various input sizes.
@@ -52,6 +69,28 @@ For example: `x=y+z`:
 - **Big-O ($O$)**: Upper bound. $f(n) = O(g(n))$ if $f(n) \leq c\times g(n)$ for some $c > 0$ and large $n$.
 - **Omega ($\Omega$)**: Lower bound. $f(n) = \Omega (g(n))$ if $f(n) \geq c \times g(n)$ for some $c > 0$ and large $n$.
 - **Theta ($\Theta$)**: Tight bound. $f(n) = \Theta (g(n))$ if $c_1\times g(n) \leq f(n) \leq c_2\times g(n)$ for some $c_1,c_2 > 0$ and large $n$.
+	- Could think of it as Big-O AND Omega.
 - **Little-O ($o$)**: Strict upper bound. $f(n)=o(g(n))$ if $\lim_{n\to \infty} \frac{f(n)}{g(n)} = \infty$
 - **Little-Omega ($\omega$)**: Strict lower bound. $f(n) = \omega(g(n))$ if $\lim_{n\to\infty}\frac{f(n)}{g(n)}=\infty$
 Note: $log^A(n) << n^E << c^n$
+---
+# Practice
+## Question 1
+Which of the following are true?
+1. $n^2 + 10nlogn = \Theta(n^2)$
+2. $\sqrt{n}=o(n^{\frac{1}{3}})$
+3. $n^2logn = O(n^2)$
+4. $2^n = \Omega(3^n)$
+5. $log^2n = O(n^\epsilon)$ for any $\epsilon > 0$
+6. $n^{logn} = O(2^n)$
+## Question 2
+Mark the correct relationship:
+
+| A            | B            | $O$ | $o$ | $\Omega$ | $\omega$ | $\Theta$ |
+| ------------ | ------------ | --- | --- | -------- | -------- | -------- |
+| $log^kn$     | $n^\epsilon$ |     |     |          |          |          |
+| $n^k$        | $c^n$        |     |     |          |          |          |
+| $\sqrt{n}$   | $n^{sin(n)}$ |     |     |          |          |          |
+| $2^n$        | $2^{n/2}$    |     |     |          |          |          |
+| $n^{log(c)}$ | $c^{log(n)}$ |     |     |          |          |          |
+| $log(n!)$    | $log(n^n)$   |     |     |          |          |          |
